@@ -1,13 +1,13 @@
 Appium-Python-Client==0.26
 datatest==0.9.4
 Faker==1.0.5
-lxml==4.2.5
+lxml==4.5.2
 psutil==4.4.2
 py==1.7.0
 PyMySQL==0.9.3
 pytest==4.0.01
 requests==2.21.0
-requests-oauthlib=1.2.0
+requests-oauthlib==1.2.0
 requests-toolbelt==0.8.0
 selenium==3.141.0
 SQLAlchemy==1.2.18
