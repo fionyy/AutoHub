@@ -23,7 +23,6 @@ class Runner(object):
 
 
 
-
 class HttpRunner(Runner):
     def __init__(self, base_url="127.0.0.1", verify=False):
         super().__init__(name="Http Runner")

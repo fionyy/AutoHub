@@ -3,6 +3,6 @@
 
 # @Author : youding
 
-# @File : __init__.py.py
+# @File : __init__.py
 
 # @Software: PyCharm Community Edition
