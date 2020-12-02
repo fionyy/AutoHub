@@ -8,39 +8,25 @@
 # @Software: PyCharm Community Edition
 
 import pytest
-
-@pytest.fixture
-def database_connector():
-    pass
+import platform
+from utils.notify import send_dingtalk_msg
 
 
 @pytest.fixture
-def datatest_connector():
-    pass
+def data_cache(request):
+    return request.config.cache
+
+def pytest_sessionstart(session):
+    session.results = dict()
 
 
-@pytest.fixture
-def http_connector():
-    pass
+def pytest_sessionfinish(session, existatus):
+    failed_count = sum(1 for result in session.results.vaules() if result.failed)
+    if failed_count != 0:
+        report_content = 'Failed Notify'
+        index = 1
+        for result in session.results.values():
+            report_content += "%d. %s \n" %(index, result.location[2])
+            index = index + 1
 
-
-@pytest.fixture
-def web_socket_connector():
-    pass
-
-
-@pytest.fixture
-def tcp_connector():
-    pass
-
-
-@pytest.fixture
-def udp_connector():
-    pass
-
-@pytest.fixture
-def web_connector():
-    """
-    return selenium webdriber object
-    :return:
-    """
+        send_dingtalk_msg(report_content)
