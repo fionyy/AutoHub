@@ -9,6 +9,7 @@
 
 import pytest
 from runner.runner import DbRunner
+from auto.conftest import database_connector
 from auto.resources.database_test.conf import RANZHI
 
 def test_ranzhi_tables(database_connector):
