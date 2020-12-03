@@ -11,11 +11,14 @@ node {
     }
 
     stage("Test"){
-        powershell "pytest --version"
+        powershell "ls"
+        echo "test"
+        /*powershell "pytest --version"
         dir("."){
             powershell "pwd"
             powershell "pytest ${testplan} --html=./logs/report.html --self-contained-html"
         }
+        */
     }
 
     stage("Report"){
