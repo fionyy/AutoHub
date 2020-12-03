@@ -1,5 +1,5 @@
 // 定义测试场景文件路径变量
-def testplan="./auto/plan/DatabaseTest/test_autolab.py"
+def testplan = "./auto/plan/database_test/test_autolab.py"
 
 // 声明式  pipeline 替代node
 node {
