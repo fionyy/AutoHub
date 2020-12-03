@@ -3,6 +3,7 @@ def testplan = "./auto/plan/database_test/test_autolab.py"
 node {
     stage("Init"){
         echo "Init Run Env"
+        //env.PATH = "$env.PATH"
     }
 
     stage("Check out"){
@@ -11,17 +12,11 @@ node {
     }
 
     stage("Test"){
-        echo "test"
-        powershell "pwd"
-        /*
-        powershell "ls"
-
         powershell "pytest --version"
         dir("."){
             powershell "pwd"
             powershell "pytest ${testplan} --html=./logs/report.html --self-contained-html"
         }
-        */
     }
 
     stage("Report"){
