@@ -13,7 +13,7 @@ node {
     }
 
     stage("Test"){
-        powershell "cd D:\env\Scripts"
+        powershell "cd D:/env/Scripts"
         powershell "activate.bat"
         powershell "pytest --version"
         dir("."){
