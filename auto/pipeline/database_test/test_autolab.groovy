@@ -2,7 +2,6 @@ def testplan = "./auto/plan/database_test/test_autolab.py"
 
 node {
     stage("Init"){
-        env.PATH = "D:/env/Scripts;{env.PATH}"
         echo "Init Run Env"
     }
 
@@ -13,8 +12,6 @@ node {
     }
 
     stage("Test"){
-        powershell "cd D:/env/Scripts"
-        powershell "activate.bat"
         powershell "pytest --version"
         dir("."){
             powershell "pwd"
@@ -41,7 +38,7 @@ node {
                 echo "it is build success"
             }
             else{
-                echo "it is buile failed"
+                echo "it is build failed"
             }
         }
     }
