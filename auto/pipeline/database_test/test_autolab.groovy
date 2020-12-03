@@ -12,6 +12,7 @@ node {
 
     stage("Test"){
         echo "test"
+        powershell 'Write-Output "Hello, world!";'
         /*
         powershell "ls"
 
