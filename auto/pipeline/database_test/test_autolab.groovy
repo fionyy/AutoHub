@@ -12,10 +12,10 @@ node {
     }
 
     stage("Test"){
-        cmd "pytest --version"
+        powershell "pytest --version"
         dir("."){
-            cmd "pwd"
-            cmd "pytest ${testplan} --html=./logs/report.html --self-contained-html"
+            powershell "pwd"
+            powershell "pytest ${testplan} --html=./logs/report.html --self-contained-html"
         }
     }
 
