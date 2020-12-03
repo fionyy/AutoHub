@@ -15,8 +15,6 @@ from auto.resources.database_test.conf import RANZHI
 def test_ranzhi_tables(database_connector):
     db = database_connector
     res = db.has_tables(RANZHI['tables'])
-
     for table in RANZHI['tables']:
         print('table %s in database' %table)
-
-        assert res['table']
+        assert res[table]

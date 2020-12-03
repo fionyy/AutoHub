@@ -7,7 +7,7 @@
 
 # @Software: PyCharm Community Edition
 RANZHI = {
-    'conn_str': 'mysql+pymysql://root@192.168.106.20:3306/ranzhi?charset=utf8',
+    'conn_str': 'mysql+pymysql://root:ayou0630@192.168.106.20:3306/ranzhi?charset=utf8',
     'encoding': 'utf-8',
     'echo': False,
     'tables': ['crm_address', 'crm_contact', 'crm_delivery', 'crm_plan', 'crm_contract'],
