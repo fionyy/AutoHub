@@ -39,7 +39,7 @@ node{
 
     stage("Notify"){
         script{
-            if currentBuild.currentResult == "SUCCESS"{
+            if (currentBuild.currentResult == "SUCCESS"){
                 echo "it is build success"
             }else{
                 echo "it is build failed"
