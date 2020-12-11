@@ -28,7 +28,7 @@ node{
             publishHTML (target: [
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
-                keepAll: True,
+                keepAll: true,
                 reportDir: "logs",
                 reportFiles: "report.html",
                 reportName: "HTML report"
