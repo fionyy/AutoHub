@@ -7,7 +7,7 @@ node{
 
     stage("Checkout"){
         echo "check out last code"
-        check scm
+        checkout scm
 
     }
 
