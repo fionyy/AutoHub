@@ -10,13 +10,13 @@
 import pytest
 from auto.conftest import database_connector
 from runner.runner import DbRunner
-from auto.resources.database_test.conf import RANZHI_CRM_ADDRESS
+from auto.resources.database_test.conf import CRM_ADDRESS
 
 def test_crm_address_columns_exist(database_connector):
     db = database_connector
-    res = db.has_columns(RANZHI_CRM_ADDRESS['table_name'], RANZHI_CRM_ADDRESS['columns'])
+    res = db.has_columns(CRM_ADDRESS['table_name'], CRM_ADDRESS['columns'])
     print(res)
-    for column in RANZHI_CRM_ADDRESS['columns']:
+    for column in CRM_ADDRESS['columns']:
         print("exist column: %s --> %s"%(column, res[column]))
         assert res[column]
 
@@ -24,7 +24,15 @@ def test_crm_address_columns_exist(database_connector):
 
 def test_crm_address_primary_key(database_connector):
     db = database_connector
-    res = db.is_primary(RANZHI_CRM_ADDRESS['table_name'], RANZHI_CRM_ADDRESS['primary'])
-    for col in RANZHI_CRM_ADDRESS['primary']:
+    res = db.is_primary(CRM_ADDRESS['table_name'], CRM_ADDRESS['primary'])
+    for col in CRM_ADDRESS['primary']:
         print('exist primary key: %s --> %s' %(col, res[col]))
+        assert res[col]
+
+
+def test_crm_address_index(database_connector):
+    db = database_connector
+    res = db.is_index(CRM_ADDRESS['table_name'], CRM_ADDRESS['index'])
+    for col in CRM_ADDRESS['index']:
+        print("exist index: %s --> %s"%(col, res[col]))
         assert res[col]

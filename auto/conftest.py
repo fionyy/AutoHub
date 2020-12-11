@@ -8,12 +8,12 @@
 # @Software: PyCharm Community Edition
 
 import pytest
-from .resources.database_test.conf import RANZHI
+from .resources.database_test.conf import CRM
 from runner.runner import DbRunner
 
 @pytest.fixture
 def database_connector():
-    return DbRunner(conn_str=RANZHI['conn_str'])
+    return DbRunner(conn_str=CRM['conn_str'])
 
 
 @pytest.fixture

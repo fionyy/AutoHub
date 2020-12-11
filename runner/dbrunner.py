@@ -41,7 +41,7 @@ class DbRunner(BaseRunner):
             res[col] = self.__find_column(table_name, col) != None
         return res
 
-    def is_default(self, table_name, columns=[]):
+    def is_default(self, table_name, columns={}):
         '''
         判断是否有默认值
         :param table_name:
@@ -49,9 +49,11 @@ class DbRunner(BaseRunner):
         :return:
         '''
         res = {}
-        for col in columns:
-            # 字段及默认值的键值对
-            k, v = col.popitem()
+        for k,v in columns.items():
+            # print(col)
+            # # 字段及默认值的键值对
+            # k, v = col.popitem()
+            # print(k, v)
             # print(k, v)
             de = self.__find_column(table_name, k)
             # print(de['default'])
@@ -88,7 +90,7 @@ class DbRunner(BaseRunner):
         res = {}
         # 获取unique 字段 列表
         unique = self.insp.get_unique_constraints(table_name)
-        # print(unique)
+        print(unique)
         for col in columns_name:
             res[col] = False
             for i in unique:
@@ -108,6 +110,7 @@ class DbRunner(BaseRunner):
     def is_index(self, table_name, columns_name=[]):
         res = {}
         indexs = self.insp.get_indexes(table_name)
+        print(indexs)
         for col in columns_name:
             res[col] = False
             for name in indexs:
@@ -128,4 +131,14 @@ class DbRunner(BaseRunner):
               return col
 
         return None
+
+
+
+if __name__ == "__main__":
+    str_conn = "mysql+pymysql://root:ayou0630@192.168.106.20:3306/ranzhi?charset=utf8"
+    db = DbRunner(str_conn)
+    con = {"maker": "'0'", "deleted": "'0'"}
+    re = db.is_default("crm_resume", con)
+    print(re)
+
 
